@@ -1,14 +1,15 @@
 import express from 'express'
 import cors from 'cors'
 
+import posts from './posts.json' assert { type: "json" };
+
 const app = express()
 app.use(cors({ origin: "http://localhost:5173" }))
 const PORT = 8080;
 
 
-
 app.get('/', (req, res, next) => {
-    res.send('hallo')
+    res.send(posts)
     res.end();
 })
 
