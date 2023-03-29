@@ -1,6 +1,6 @@
 import './Landingpage.scss'
 import landingpagePicture from '../../assets/img/landingpage_top.jpg'
-import { Parallax } from 'react-parallax';
+import { Parallax } from 'react-parallax'
 import Team from '../../components/Team/Team';
 import Destination from '../../components/Destination/Destination.jsx'
 import Navigation from '../../components/Navigation/Navigation';
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const LandingPage = (posts) => {
     return (
         <>
-            <Parallax blur={1} bgImage={landingpagePicture} bgImageAlt="the cat" strength={200}>
+            <Parallax blur={1} bgImage={landingpagePicture} bgImageAlt="the cat" strength={300}>
                 <Navigation />
                 <article className='call-to-action'>
                     <h1>Embark on an Unforgettable Journey with Our Travel Blog!</h1>
@@ -20,7 +20,6 @@ const LandingPage = (posts) => {
                 </article>
             </Parallax>
             <Destination data={posts.data} />
-
             <Team />
         </>
     );

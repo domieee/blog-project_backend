@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Landingpage data={posts} />} />
-        <Route path='/post/:id' element={<Blogpage data={posts} />} />
+        <Route path='/posts/:id/' element={<Blogpage data={posts} />} />
       </Routes>
     </BrowserRouter>
   )
