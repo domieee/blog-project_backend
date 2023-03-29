@@ -1,0 +1,20 @@
+#landing-grid {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    .item-row {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .grid-item {
+        background-size: cover;
+        background-position: center center;
+        width: 220px;
+        aspect-ratio: 3/4;
+    }
+}

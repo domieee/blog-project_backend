@@ -14,15 +14,14 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setPosts(data)
-        console.log(posts.length);
       })
   }, [])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Landingpage posts={posts} />} />
-        <Route path='/post/:id' element={<Blogpage posts={posts} />} />
+        <Route path='/' element={<Landingpage data={posts} />} />
+        <Route path='/post/:id' element={<Blogpage data={posts} />} />
       </Routes>
     </BrowserRouter>
   )

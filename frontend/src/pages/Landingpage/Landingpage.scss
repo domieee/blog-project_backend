@@ -1,11 +1,30 @@
-#root {
-    height: 2000px;
-}
-
 .react-parallax {
-    height: 200px;
+    height: 100vh;
 
     img {
         object-fit: cover;
     }
+
+    article {
+        a {
+            border: solid 1px #000;
+            text-decoration: none;
+            padding: 3px 5px;
+            color: #000;
+            border-radius: 5px;
+        }
+    }
+}
+
+
+.call-to-action {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 70%);
+    max-width: 600px;
+    max-height: 400px;
+    padding: 30px 50px;
+    background-color: #fff;
+    border-radius: 20px;
 }
