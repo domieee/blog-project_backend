@@ -12,14 +12,18 @@ const Destinations = (posts) => {
             <div className='item-row'>
                 {posts && posts.data.map((post, index) => {
                     return (
-                        <Link to={`post/${post.id}`} >
-                            <article className='grid-item' id={`grid-item-${index + 1}`}
-                                style={{ backgroundImage: `url(${post.imgSrc})` }}>
+
+                        <article className='grid-item' id={`grid-item-${index + 1}`}
+                            style={{ backgroundImage: `url(${post.imgSrc})` }}>
+                            <div className='grid-content'>
                                 <h3>{post.destination}</h3>
-                                <p>{post.subtext}</p>
-                                <Link to={`posts/${post.country}`}></Link>
-                            </article>
-                        </Link>
+                                <p>{post.title}</p>
+                                <Link to={`post/${post.id}`} >Explore</Link>
+                            </div>
+
+                            <div className='overlay'></div>
+                        </article>
+
                     )
                 })}
             </div>
