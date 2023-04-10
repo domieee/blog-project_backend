@@ -1,0 +1,20 @@
+.author-content {
+    width: 128px;
+    display: flex;
+    flex-direction: column;
+
+    >h4 {
+        text-align: center;
+    }
+
+    img {
+        border-radius: 100%;
+        width: 128px;
+        height: 128px;
+    }
+
+    article {
+        display: flex;
+        width: 400px;
+    }
+}

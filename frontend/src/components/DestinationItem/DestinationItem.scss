@@ -1,0 +1,68 @@
+// TODO: Create Mixins for e.g. the grid areas
+
+.grid-item {
+    width: 250px;
+    height: 300px;
+    display: grid;
+    max-height: 360px;
+    aspect-ratio: 3/4;
+    border-radius: 5px;
+
+    .background {
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .overlay {
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%;
+        border-radius: 5px;
+        z-index: 0;
+        background-color: #060C21;
+        opacity: 0.3;
+        width: 100%;
+    }
+
+    .grid-content {
+        line-break: auto;
+        background-color: rgba($color: #000000, $alpha: 0);
+        grid-row: 1;
+        grid-column: 1;
+        width: 100%;
+        height: 100%;
+        padding-block: 20px;
+        display: grid;
+        grid-template-rows: 15% 15% 55% 15%;
+        z-index: 0;
+        text-align: center;
+
+        h3,
+        p {
+            color: white;
+            text-align: center;
+            width: 65%;
+            margin-inline: auto;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 20px;
+            position: relative;
+
+        }
+
+        //TODO: change the opacity of the overlay when then anchor is hovered
+
+        .explore {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}

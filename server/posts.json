@@ -30,9 +30,9 @@
         "text": "Traveling to Denmark is a unique and unforgettable experience that will leave you with memories that will last a lifetime. Whether you're interested in exploring the vibrant cities, immersing yourself in the natural beauty of the countryside, or indulging in the delicious local cuisine, Denmark has something to offer for everyone. So why not start planning your trip today and discover all that this charming country has to offer?"
       }
     ],
-    "imgSrc": "https://images.unsplash.com/photo-1521240104483-b3e91583366c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZGVubWFya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    "imgSrc": "https://images.unsplash.com/photo-1521240104483-b3e91583366c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZGVubWFya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    "imgSrcBlog": "https://images.unsplash.com/photo-1627215477561-f0b7755115e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
   },
-
   {
     "id": "44060a2a-a123-4ede-8ce4-0fec28868edd",
     "title": "Island of Gods, Beaches, and Culture",
@@ -64,7 +64,8 @@
         "text": "Bali is a paradise island that offers something for everyone, from its beautiful beaches and stunning natural beauty to its vibrant culture and warm hospitality. Whether you're looking to relax and unwind or explore and discover, Bali is sure to leave you with unforgettable memories. So why not start planning your trip today and experience all that this beautiful island has to offer?"
       }
     ],
-    "imgSrc": "https://images.unsplash.com/photo-1536140012599-830a641c27e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+    "imgSrc": "https://images.unsplash.com/photo-1536140012599-830a641c27e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "imgSrcBlog": "https://images.unsplash.com/photo-1557093793-e196ae071479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
   },
   {
     "id": "75f6b7ca-7e30-4513-b010-a6444332be5d",
@@ -97,7 +98,8 @@
         "text": "Italy is a country that truly has it all - from its rich history and culture to its delicious cuisine and stunning landscapes. It is a destination that can be enjoyed by travelers of all ages and interests. So why not start planning your trip today and experience all that Italy has to offer?"
       }
     ],
-    "imgSrc": "https://images.unsplash.com/photo-1554481923-a6918bd997bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
+    "imgSrc": "https://images.unsplash.com/photo-1554481923-a6918bd997bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    "imgSrcBlog": "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
   },
   {
     "id": "86611ed1-26b3-4dc5-926e-1af0063290ee",
@@ -134,6 +136,16 @@
         "text": "Tokyo is a city that is full of contrasts and surprises, with its blend of ancient and modern culture, delicious cuisine, and vibrant nightlife. It is a destination that can be enjoyed by travelers of all interests and ages. So why not start planning your trip to Tokyo today and experience all that this amazing city has to offer?"
       }
     ],
-    "imgSrc": "https://images.unsplash.com/photo-1583930263826-a1c6a639eaf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fFRva3lvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    "imgSrc": "https://images.unsplash.com/photo-1583930263826-a1c6a639eaf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTd8fFRva3lvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    "imgSrcBlog": "https://images.unsplash.com/photo-1549693578-d683be217e58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80"
+  },
+  {
+    "id": "69f88794-23a2-450b-9873-a61032fb3f55",
+    "title": "",
+    "destination": "",
+    "subtext": "",
+    "text": [{ "heading": "", "content": "" }],
+    "imgSrc": null,
+    "imgSrcBlog": null
   }
 ]

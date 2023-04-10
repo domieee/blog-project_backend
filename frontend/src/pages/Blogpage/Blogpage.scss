@@ -16,6 +16,37 @@
     }
 }
 
+#article {
+    margin-inline: auto;
+    max-width: 1080px;
+    width: 100%;
+
+    >h2 {
+        margin-block: 20px 5px;
+    }
+
+    .index-list {
+        margin: 0px 0px 0px 20px;
+        line-height: 20px;
+    }
+
+    .chapter {
+        margin-block: 20px;
+
+        &:first-child {
+            h3 {
+                color: red;
+            }
+        }
+
+        h3 {
+            margin-bottom: 5px;
+
+
+        }
+    }
+}
+
 .destination {
     position: absolute;
     left: 50%;
@@ -26,4 +57,9 @@
     padding: 30px 50px;
     background-color: #fff;
     border-radius: 20px;
+
+    h2,
+    a {
+        padding-block: 20px;
+    }
 }
