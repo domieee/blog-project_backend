@@ -12,7 +12,7 @@ function App() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/`)
+    fetch(`${import.meta.env.VITE_BACKEND}/`)
       .then(res => res.json())
       .then(data => {
         console.log(data, '123123');
