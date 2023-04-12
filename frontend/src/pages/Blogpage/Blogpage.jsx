@@ -9,11 +9,7 @@ const Blogpage = ({ posts }) => {
 
     const params = useParams();
 
-    console.log(posts);
     const article = posts?.find(data => data.id === params.id)
-    console.log(article);
-
-
 
     if (!article) {
         return
@@ -30,6 +26,8 @@ const Blogpage = ({ posts }) => {
                 </article>
             </Parallax >
             <section id='article'>
+                <h2>{article.mainHeading}</h2>
+                <p>{article.mainText}</p>
                 <h2>Index</h2>
                 {
                     posts && article && article.content.map((chapter, index) => {
@@ -40,17 +38,19 @@ const Blogpage = ({ posts }) => {
                         )
                     })
                 }
+                <article className='chapter' >
 
-                {
-                    posts && article && article.content.map((chapter, index) => {
-                        return (
-                            <article className='chapter' id={`chapter-${index + 1}`}>
-                                <h3>{chapter.heading}</h3>
-                                <p>{chapter.text}</p>
-                            </article>
-                        )
-                    })
-                }
+                    {
+                        posts && article && article.content.map((chapter, index) => {
+                            return (
+                                <>
+                                    <h3>{chapter.heading}</h3>
+                                    <p>{chapter.text}</p>
+                                </>
+                            )
+                        })
+                    }
+                </article>
                 <Author />
             </section >
         </>

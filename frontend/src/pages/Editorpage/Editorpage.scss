@@ -1,3 +1,6 @@
+@import '../../assets/scss/variables.scss';
+
+
 .editor {
     display: flex;
     flex-direction: column;
@@ -6,22 +9,29 @@
     padding-top: 200px;
     padding-inline: 100px;
 
+    >p {
+        margin-bottom: 50px;
+    }
+
     .content-editor {
-        width: 1200px;
         display: flex;
         justify-content: center;
         flex-direction: column;
 
         .form-head {
+            max-width: 1200px;
             display: grid;
             justify-content: center;
             grid-template-areas:
                 "A B"
                 "C C"
+                "D D"
+                "E E"
+                "F F"
         }
 
         .head-input {
-
+            margin-inline: 100px;
             display: flex;
             flex-direction: column;
             grid-area: A;
@@ -33,6 +43,7 @@
         }
 
         .head-card {
+            margin-inline: 100px;
             grid-area: B;
         }
 
@@ -44,6 +55,32 @@
             margin-inline: auto;
             width: 300px;
             gap: 50px;
+        }
+
+        .head-heading,
+        .head-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .head-heading {
+            grid-area: D;
+        }
+
+        .head-content {
+            grid-area: E;
+        }
+
+        .head-button {
+            margin-inline: auto;
+            grid-area: F;
+            background-color:
+                $Natural-Health-and-Fitness-Theme-Color-Palette-3-hex;
+            color: $Natural-Health-and-Fitness-Theme-Color-Palette-4-hex;
+            width: 120px;
+            padding: 10px 10px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
     }

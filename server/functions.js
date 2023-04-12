@@ -1,22 +1,14 @@
-import fs from 'fs'
+import fs from 'fs/promises'
+import { getDb } from './util/db.js'
+import { ObjectId } from "mongodb";
 
-export const readData = () => {
-    return new Promise((resolve, reject) => {
-        fs.readFile('./posts.json', { encoding: 'utf8' }, (err, data) => {
-            if (err) {
-                console.error('Error reading JSON:', err)
-                reject(err)
-            } else {
-                try {
-                    resolve(JSON.parse(data));
-                } catch (err) {
-                    console.error('Error parsing JSON:', err)
-                    reject(err)
-                }
-            }
-        });
-    });
-};
+const COL = 'destinations'
+
+export async function readData() {
+    const db = await getDb()
+    const docs = await db.collection(COL).find({}).toArray()
+    return docs
+}
 
 export function writeFile(article) {
     return new Promise((resolve, reject) => {

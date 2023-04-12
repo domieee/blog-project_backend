@@ -11,6 +11,8 @@ const Editorpage = () => {
     let [title, setTitle] = useState("")
     let [destination, setDestination] = useState("")
     let [description, setDescription] = useState("")
+    let [mainHeading, setMainHeading] = useState("")
+    let [mainText, setMainText] = useState("")
     let [chapters, setChapter] = useState([])
     const [picture, setPicture] = useState(null);
     const [imgData, setImgData] = useState(null);
@@ -32,25 +34,28 @@ const Editorpage = () => {
         setChapter((current) => [...current, { heading: document.querySelector('#heading').value, content: document.querySelector('#content').value }]);
     }
 
-    function postData() {
-
-        fetch("http://localhost:8080/editor", {
-            method: "POST",
-            body: JSON.stringify({
-                id: uuid4(),
-                title: title,
-                destination: destination,
-                subtext: description,
-                text: chapters,
-                imgSrc: imgData,
-                imgSrcBlog: imgData
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-            .then(res => res.json())
-            .then(data => console.log(data, "asdasd"))
+    async function postData() {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND}`, {
+                method: "POST",
+                body: JSON.stringify({
+                    id: uuid4(),
+                    title: title,
+                    destination: destination,
+                    subtext: description,
+                    mainHeading: mainHeading,
+                    mainText: mainText,
+                    text: chapters,
+                    imgSrc: imgData,
+                    imgSrcBlog: imgData
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
@@ -128,21 +133,25 @@ const Editorpage = () => {
                                     placeholder='' />
                             </div>
                         </article>
-                        <h4>Chapter</h4>
-                        <label htmlFor="heading">Heading</label>
-                        <input
-                            type="text"
-                            name="heading"
-                            id="heading"
-                            placeholder='e.g. "Discovering Bali: A Paradise Island in Indonesia"' />
-                        <label htmlFor="content">Content</label>
-                        <textarea
-                            name="content"
-                            id="content"
-                            cols="200"
-                            rows="3"
-                            placeholder='e.g. "Bali, an island located in Indonesia, is known for its breathtaking scenery, rich culture, and warm hospitality. From its stunning beaches to its lush green rice paddies and majestic volcanoes, Bali offers a unique and unforgettable travel experience. In this article, well explore the beauty and culture of Bali and share some of the must-see sights and experiences."'></textarea>
-                        <button type='button' onClick={articleConstructor}>Create Chapter</button>
+                        <div className='head-heading'>
+                            <label htmlFor="heading">Heading</label>
+                            <input
+                                type="text"
+                                name="heading"
+                                id="heading"
+                                placeholder='e.g. "Discovering Bali: A Paradise Island in Indonesia"' />
+                        </div>
+
+                        <div className='head-content'>
+                            <label htmlFor="content">Content</label>
+                            <textarea
+                                name="content"
+                                id="content"
+                                cols="200"
+                                rows="3"
+                                placeholder='e.g. "Bali, an island located in Indonesia, is known for its breathtaking scenery, rich culture, and warm hospitality. From its stunning beaches to its lush green rice paddies and majestic volcanoes, Bali offers a unique and unforgettable travel experience. In this article, well explore the beauty and culture of Bali and share some of the must-see sights and experiences."'></textarea>
+                        </div>
+                        <button type='button' className='head-button' onClick={articleConstructor}>Create Chapter</button>
                     </section>
 
                     <article className="content-preview">

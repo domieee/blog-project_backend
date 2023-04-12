@@ -8,15 +8,12 @@ const Navigation = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
 
     const controlNavbar = () => {
-        if (window.scrollY != 0) { // if scroll down hide the navbar
+        if (window.scrollY != 0) {
             setNavClass(true);
-        } else { // if scroll up show the navbar
+        } else {
             setNavClass(false);
         }
-
-        // remember current page location to use in the next move
         setLastScrollY(window.scrollY);
-
     };
 
     useEffect(() => {
@@ -39,7 +36,7 @@ const Navigation = () => {
                 <Link to='/editor'>Editor</Link>
             </div>
             <span>Footprints Worldwide</span>
-            <button>Admin Panel</button>
+            <button>Register</button>
         </nav >
     );
 }
