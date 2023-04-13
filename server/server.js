@@ -9,11 +9,12 @@ import {
 
 const app = express()
 app.use(cors({ origin: process.env.FRONTEND_URL }))
-const PORT = process.env.PORT || process.env.BACKFALL_PORT;
+const PORT = 8080 || process.env.BACKFALL_PORT;
 
 app.use(express.json())
 
 app.get('/', async (req, res, next) => {
+    console.log('object');
     const result = await readData()
     res.send(result)
 })

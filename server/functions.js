@@ -6,8 +6,11 @@ const COL = 'destinations'
 
 export async function readData() {
     const db = await getDb()
+    console.log(db);
     const docs = await db.collection(COL).find({}).toArray()
+    console.log(docs);
     return docs
+
 }
 
 export function writeFile(article) {
