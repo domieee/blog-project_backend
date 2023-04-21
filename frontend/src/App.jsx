@@ -5,6 +5,8 @@ import Landingpage from './pages/Landingpage/Landingpage';
 import './reset.scss'
 import Editorpage from './pages/Editorpage/Editorpage';
 import Navigation from './components/Navigation/Navigation';
+import Login from './pages/UserValidation/Login';
+import Register from './pages/UserValidation/Register';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path='/' element={<Landingpage data={posts} />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/posts/:id/' element={<Blogpage posts={posts} />} />
         <Route path='/editor/' element={<Editorpage />} />
       </Routes>

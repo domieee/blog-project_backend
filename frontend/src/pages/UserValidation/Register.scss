@@ -1,0 +1,9 @@
+// TODO: CREATE MIXIN FOR FLEX CONTAINER
+
+.register {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

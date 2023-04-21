@@ -1,5 +1,5 @@
 import './Editorpage.scss'
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import DestinationItem from '../../components/DestinationItem/DestinationItem';
 import Placeholder from '../../assets/img/placeholder.jpg'
 import ConfettiGenerator from "confetti-js";
@@ -14,6 +14,8 @@ const Editorpage = () => {
     let [mainHeading, setMainHeading] = useState("")
     let [mainText, setMainText] = useState("")
     let [chapters, setChapter] = useState([])
+    const headingRef = useRef()
+    const contentRef = useRef()
     const [picture, setPicture] = useState(null);
     const [imgData, setImgData] = useState(null);
     const [img, setImg] = useState(-1)
@@ -31,12 +33,17 @@ const Editorpage = () => {
     }
 
     const articleConstructor = () => {
-        setChapter((current) => [...current, { heading: document.querySelector('#heading').value, content: document.querySelector('#content').value }]);
+        setChapter((current) => [...current,
+        {
+            heading: headingRef.current.value,
+            content: contentRef.current.value
+        }
+        ]);
     }
 
     async function postData() {
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND}/editor`, {
                 method: "POST",
                 body: JSON.stringify({
                     id: uuid4(),
@@ -53,6 +60,7 @@ const Editorpage = () => {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             })
+
         } catch (err) {
             console.log(err);
         }
@@ -136,6 +144,7 @@ const Editorpage = () => {
                         <div className='head-heading'>
                             <label htmlFor="heading">Heading</label>
                             <input
+                                ref={headingRef}
                                 type="text"
                                 name="heading"
                                 id="heading"
@@ -145,6 +154,7 @@ const Editorpage = () => {
                         <div className='head-content'>
                             <label htmlFor="content">Content</label>
                             <textarea
+                                ref={contentRef}
                                 name="content"
                                 id="content"
                                 cols="200"
@@ -168,7 +178,7 @@ const Editorpage = () => {
                                 return (
                                     <>
                                         <article className='index-list' id={`grid-item-${index + 1}`}>
-                                            <a href={`#chapter-${index + 1}`}>{`${index + 1}. ${chapter.header}`}</a>
+                                            <a href={`#chapter-${index + 1}`}>{`${index + 1}. ${chapter.heading}`}</a>
                                         </article>
                                     </>
                                 )
@@ -177,13 +187,13 @@ const Editorpage = () => {
                             {chapters.map((chapter, index) => {
                                 return (
                                     <>
-                                        <h4>{`${index}. ${chapter.header}`}</h4>
+                                        <h4>{`${index + 1}. ${chapter.heading}`}</h4>
                                         <p>{chapter.content}</p>
                                     </>
                                 )
                             })}
                         </article>
-                        <button onClick={postData}>Publish</button>
+                        <button onClick={postData}>Publish Article</button>
                     </article>
                 </form>
             </section >

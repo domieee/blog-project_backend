@@ -9,8 +9,13 @@ nav {
 
     .nav-options,
     span,
-    button {
+    .userOptions {
         margin-inline: auto;
+    }
+
+    .userOptions {
+        display: flex;
+        gap: 20px;
     }
 
 

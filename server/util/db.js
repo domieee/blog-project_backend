@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb"
+import './config.js'
 
 const URI = process.env.MONGO_URI
 const DB = process.env.MONGO_DB

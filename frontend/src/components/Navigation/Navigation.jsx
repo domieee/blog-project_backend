@@ -36,7 +36,10 @@ const Navigation = () => {
                 <Link to='/editor'>Editor</Link>
             </div>
             <span>Footprints Worldwide</span>
-            <button>Register</button>
+            <div className='userOptions'>
+                <Link className='loginButton' to='/login'>Login</Link>
+                <Link className='registerButton' to='/register'>Register</Link>
+            </div>
         </nav >
     );
 }
