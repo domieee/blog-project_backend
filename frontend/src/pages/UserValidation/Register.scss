@@ -1,9 +1,21 @@
 // TODO: CREATE MIXIN FOR FLEX CONTAINER
 
+@import '../../assets/scss/mixins';
+
+
 .register {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+
+    >input {
+        @include inputFieldRegisterLogin;
+    }
+
+    >button {
+        @include buttonPrimary;
+    }
 }

@@ -5,8 +5,9 @@ import Placeholder from '../../assets/img/placeholder.jpg'
 import ConfettiGenerator from "confetti-js";
 import uuid4 from "uuid4";
 
-const Editorpage = () => {
+const Editorpage = (protection) => {
 
+    console.log(protection)
 
     let [title, setTitle] = useState("")
     let [destination, setDestination] = useState("")
@@ -60,7 +61,6 @@ const Editorpage = () => {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             })
-
         } catch (err) {
             console.log(err);
         }

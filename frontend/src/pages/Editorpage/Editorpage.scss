@@ -1,4 +1,5 @@
 @import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
 
 .editor {
     display: flex;
@@ -73,14 +74,7 @@
         .head-button {
             margin-inline: auto;
             grid-area: F;
-            background-color:
-                $Natural-Health-and-Fitness-Theme-Color-Palette-3-hex;
-            color: $Natural-Health-and-Fitness-Theme-Color-Palette-4-hex;
-            width: 120px;
-            padding: 10px 10px;
-            cursor: pointer;
-            border-radius: 5px;
+            @include buttonPrimary
         }
-
     }
 }

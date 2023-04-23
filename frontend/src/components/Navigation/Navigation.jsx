@@ -1,11 +1,19 @@
 import './Navigation.scss'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const Navigation = () => {
 
+    const navigate = useNavigate()
     const [navClass, setNavClass] = useState(false)
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const logout = async () => {
+        await fetch(`${import.meta.env.VITE_BACKEND}/logout`, {
+            credentials: 'include'
+        })
+        navigate('/')
+    }
 
     const controlNavbar = () => {
         if (window.scrollY != 0) {
@@ -39,6 +47,7 @@ const Navigation = () => {
             <div className='userOptions'>
                 <Link className='loginButton' to='/login'>Login</Link>
                 <Link className='registerButton' to='/register'>Register</Link>
+                <button onClick={logout}>Logout</button>
             </div>
         </nav >
     );

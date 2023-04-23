@@ -1,7 +1,21 @@
+@import '../../assets/scss/mixins';
+
 .login {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+
+    >input {
+        @include inputFieldRegisterLogin;
+        transition: 0.05s ease;
+
+
+    }
+
+    >button {
+        @include buttonPrimary;
+    }
 }

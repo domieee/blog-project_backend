@@ -10,3 +10,31 @@
 // TODO:    - TEXTAREA
 // TODO:    - IMAGE
 // TODO:    - LABELS
+@import '../../assets/scss/variables.scss';
+
+@mixin inputFieldRegisterLogin {
+    height: 30px;
+    max-width: 260px;
+    width: 100%;
+    border-radius: 5px;
+    border: 0px;
+    outline: 1px ridge #afafaf;
+    outline-width: 1px;
+    padding: 20px 5px;
+
+    &:focus {
+        background-color: 2px ridge #afafaf;
+    }
+}
+
+@mixin buttonPrimary {
+    background-color: $Natural-Health-and-Fitness-Theme-Color-Palette-3-hex;
+    color: $Natural-Health-and-Fitness-Theme-Color-Palette-4-hex;
+    width: 120px;
+    padding: 10px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+
+
+}

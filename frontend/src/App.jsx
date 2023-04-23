@@ -7,30 +7,34 @@ import Editorpage from './pages/Editorpage/Editorpage';
 import Navigation from './components/Navigation/Navigation';
 import Login from './pages/UserValidation/Login';
 import Register from './pages/UserValidation/Register';
+import Protect from './components/Protect';
 
 
 function App() {
 
   const [posts, setPosts] = useState([])
+  const [user, setUser] = useState('')
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND}/`)
       .then(res => res.json())
       .then(data => {
-        console.log(data, '123123');
         setPosts(data)
       })
   }, [])
+
 
   return (
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path='/' element={<Landingpage data={posts} />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/posts/:id/' element={<Blogpage posts={posts} />} />
-        <Route path='/editor/' element={<Editorpage />} />
+        <Route path='/' element={<Landingpage user={user} data={posts} />} />
+        <Route element={<Protect />}>
+          <Route path='/editor' element={<Editorpage />} />
+        </Route>
+        <Route path='/login' element={<Login user={user} setUser={setUser} />} />
+        <Route path='/register' element={<Register user={user} setUser={setUser} />} />
+        <Route path='/posts/:id' element={<Blogpage posts={posts} />} />
       </Routes>
     </BrowserRouter>
   )
