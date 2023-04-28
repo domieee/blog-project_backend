@@ -4,7 +4,7 @@
 
 
 .register {
-    height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +15,19 @@
         @include inputFieldRegisterLogin;
     }
 
-    >button {
+    >a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 14px;
         @include buttonPrimary;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .errorInput {
+        color: red;
+        outline: 1px ridge red;
     }
 }

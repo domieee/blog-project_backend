@@ -1,19 +1,20 @@
 
 import { useRef, useState } from 'react'
-import { Link, Route, useNavigate } from 'react-router-dom'
+import { Link, Route, useNavigate, Outlet } from 'react-router-dom'
 import uuid4 from "uuid4"
+import RegisterDetails from "./RegisterDetails"
 import './Register.scss'
 
 const Register = ({ user, setUser }) => {
 
 
     const navigate = useNavigate();
-    let firstName = useRef('')
-    let lastName = useRef('')
     let email = useRef('')
     let password = useRef('')
+    let confirmPassword = useRef('')
 
     const [error, setError] = useState(false)
+    const [errorKey, setErrorKey] = useState('')
 
     const register = async () => {
 
@@ -24,68 +25,78 @@ const Register = ({ user, setUser }) => {
                 headers: { "Content-type": "application/json; charset=UTF-8" },
                 body: JSON.stringify({
                     id: uuid4(),
-                    name: firstName.current.value + " " + lastName.current.value,
-                    firstName: firstName.current.value,
-                    lastName: lastName.current.value,
                     mail: email.current.value,
-                    password: password.current.value
+                    password: password.current.value,
+                    confirmPassword: confirmPassword.current.value,
+                    firstName: '',
+                    lastName: '',
+                    description: ''
                 })
             })
             if (response.ok) {
-                const json = await response.json()
-                setUser(json)
-                navigate('/')
+                const result = await response.json()
+                setUser(result.user.insertedId)
+                navigate('/register/2')
             } else {
-                setError(true)
+                console.log(response)
+                const error = await response.json()
+                console.log(error)
+                switch (error.key) {
+                    case 'email':
+                        setErrorKey('mail')
+                        break;
+                    case 'password':
+                        setErrorKey('password')
+                        break;
+                    case 'confirmPassword':
+                        setErrorKey('confirmPassword')
+                        break;
+                    case 'noMatch':
+                        setErrorKey('noMatch')
+                        break;
+                }
+                console.log(errorKey)
+                setError(error.msg)
             }
         } catch (err) {
-            console.log(err);
+            console.log(err)
         }
     }
     return (
         <section className="register">
             <h2>Register</h2>
             <input
-                ref={firstName}
-                type="text"
-                name="name"
-                id="name"
-                placeholder='John'
-                required />
-            <input
-                ref={lastName}
-                type="text"
-                name="lastName"
-                id="lastName"
-                placeholder='Doe'
-                required />
-            <input
                 ref={email}
                 type="email"
                 name="mail"
                 id="mail"
+                className={errorKey === 'mail' ? 'errorInput' : null}
                 placeholder='john@doe.com'
                 required />
-            {error && <span className="error">Mail bereits registriert</span>}
+
             <input
                 ref={password}
                 type="password"
                 name="password"
                 id="password"
+                className={errorKey === 'password' || errorKey === 'noMatch' ? 'errorInput' : null}
                 placeholder='Password'
                 required />
             <input
-                ref={password}
+                ref={confirmPassword}
                 type="password"
                 name="password"
                 id="passwordCofirm"
                 placeholder='Confirm Password'
+                className={errorKey === 'confirmPassword' || errorKey === 'noMatch' ? 'errorInput' : null}
                 required />
-            <button
+            {error && <span className="error">{error}</span>}
+            <Link
+                to={RegisterDetails}
                 onClick={register}>Create Account
-            </button>
-            <span>Already a member? <Link to="/login">Login</Link></span>
+            </Link>
 
+            <span>Already a member? <Link to="/login">Login</Link></span>
         </section>
     );
 }

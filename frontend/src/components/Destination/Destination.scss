@@ -6,7 +6,6 @@
     max-width: 1080px;
 
     .catch-phrase {
-        opacity: 0;
         height: fit-content;
     }
 
@@ -17,7 +16,6 @@
 
     .item-row {
         margin-top: 50px;
-        opacity: 0;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         justify-content: center;

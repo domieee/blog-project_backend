@@ -9,6 +9,8 @@ const Blogpage = ({ posts }) => {
 
     const params = useParams();
 
+    window.scrollTo(0, 0)
+
     const article = posts?.find(data => data.id === params.id)
 
     if (!article) {
@@ -18,7 +20,6 @@ const Blogpage = ({ posts }) => {
     return (
         <>
             <Parallax blur={1} bgImage={`${article.imgSrcBlog}`} bgImageAlt="the cat" strength={300}>
-                <Navigation />
                 <article className='destination'>
                     <h1>{article.destination}</h1>
                     <p>{article.subtext}</p>
@@ -29,14 +30,13 @@ const Blogpage = ({ posts }) => {
                 <h2>{article.mainHeading}</h2>
                 <p>{article.mainText}</p>
                 <h2>Index</h2>
-                {
-                    posts && article && article.content.map((chapter, index) => {
-                        return (
-                            <article className='index-list' id={`grid-item-${index + 1}`}>
-                                <a href={`#chapter-${index + 1}`}>{`${index + 1}. ${chapter.heading}`}</a>
-                            </article>
-                        )
-                    })
+                {posts && article && article.content.map((chapter, index) => {
+                    return (
+                        <article className='index-list' id={`grid-item-${index + 1}`}>
+                            <a href={`#chapter-${index + 1}`}>{`${index + 1}. ${chapter.heading}`}</a>
+                        </article>
+                    )
+                })
                 }
                 <article className='chapter' >
 

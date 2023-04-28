@@ -6,8 +6,9 @@ import uuid4 from 'uuid4'
 
 function Login({ user, setUser }) {
 
-
     const [error, setError] = useState(false)
+    const [errorKey, setErrorKey] = useState('')
+
     const navigate = useNavigate();
     let email = useRef('')
     let password = useRef('')
@@ -30,33 +31,36 @@ function Login({ user, setUser }) {
                 setUser(json)
                 navigate('/')
             } else {
-                setError(true)
+                const error = await response.json()
+                setError(error.msg)
+                setErrorKey(error.key)
             }
         } catch (err) {
             console.log(err);
         }
     }
 
-
     return (
 
         < section className="login" >
             <h2>Login</h2>
-            {error && <span className="error">E-Mail oder Passwort nicht bekannt</span>}
+
             <input
                 ref={email}
                 type="email"
-                name=""
-                id=""
+                name="email"
+                id="email"
+                className={errorKey === 'email' ? 'errorInput' : null}
                 placeholder='john@doe.com' />
             <input
                 ref={password}
                 type="password"
                 name="password"
                 id="password"
+                className={errorKey === 'password' ? 'errorInput' : null}
                 placeholder='Password'
             />
-
+            {error && <span className="error">{error}</span>}
             <button
                 onClick={login}>Login
             </button>

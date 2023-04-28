@@ -1,8 +1,9 @@
 import './Navigation.scss'
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-const Navigation = () => {
+const Navigation = ({ user, setUser }) => {
+    console.log(user)
 
     const navigate = useNavigate()
     const [navClass, setNavClass] = useState(false)
@@ -12,7 +13,8 @@ const Navigation = () => {
         await fetch(`${import.meta.env.VITE_BACKEND}/logout`, {
             credentials: 'include'
         })
-        navigate('/')
+        setUser(null)
+        navigate('/login')
     }
 
     const controlNavbar = () => {
@@ -22,18 +24,18 @@ const Navigation = () => {
             setNavClass(false);
         }
         setLastScrollY(window.scrollY);
-    };
+    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', controlNavbar);
+            window.addEventListener('scroll', controlNavbar)
 
             // cleanup function
             return () => {
-                window.removeEventListener('scroll', controlNavbar);
-            };
+                window.removeEventListener('scroll', controlNavbar)
+            }
         }
-    }, [lastScrollY]);
+    }, [lastScrollY])
 
     return (
         <nav
@@ -41,13 +43,21 @@ const Navigation = () => {
             <div className="nav-options">
                 <Link to='/'>Home</Link>
                 <Link to='/posts'>Destinations</Link>
-                <Link to='/editor'>Editor</Link>
+                {user ?
+                    <Link to='/editor'>Editor</Link> :
+                    <></>
+                }
+
             </div>
-            <span>Footprints Worldwide</span>
+            <span className='logo'>Footprints Worldwide</span>
             <div className='userOptions'>
-                <Link className='loginButton' to='/login'>Login</Link>
-                <Link className='registerButton' to='/register'>Register</Link>
-                <button onClick={logout}>Logout</button>
+                {user ?
+                    <button onClick={logout}>Logout</button> :
+                    <>
+                        <Link className='loginButton' to='/login'>Login</Link>
+                        <Link className='registerButton' to='/register/1'>Register</Link>
+                    </>
+                }
             </div>
         </nav >
     );

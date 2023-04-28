@@ -1,8 +1,9 @@
 .react-parallax {
     height: 95vh;
 
-    img {
+    >.react-parallax-bgimage {
         height: 20vh;
+        width: 100%;
     }
 
     article {

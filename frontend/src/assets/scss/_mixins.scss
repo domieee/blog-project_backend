@@ -22,16 +22,14 @@
     outline-width: 1px;
     padding: 20px 5px;
 
-    &:focus {
-        background-color: 2px ridge #afafaf;
-    }
+
 }
 
 @mixin buttonPrimary {
     background-color: $Natural-Health-and-Fitness-Theme-Color-Palette-3-hex;
     color: $Natural-Health-and-Fitness-Theme-Color-Palette-4-hex;
     width: 120px;
-    padding: 10px 10px;
+    padding: 11px 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;

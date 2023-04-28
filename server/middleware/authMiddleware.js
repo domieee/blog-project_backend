@@ -14,7 +14,7 @@ export const verifyJWTCookie = (req, res, next) => {
         const claim = verifyToken(token)
         req.claim = claim
         console.log('Unser Claim:', req.claim);
-        next()
+        next(req.claim.body)
     } catch (err) {
         console.log(err.message)
         res.status(401).end()

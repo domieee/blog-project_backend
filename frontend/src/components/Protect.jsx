@@ -1,18 +1,27 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Protect = () => {
 
-    const verify = () => {
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
         fetch(`${import.meta.env.VITE_BACKEND}/validate`, {
             credentials: 'include'
-        }).then(response => response.ok ? true : false)
-    }
+        }).then(response => {
+            if (response.ok) {
+                setLoading(false)
+            } else {
+                navigate('/')
+            }
+        })
+    }, [])
 
-    if (verify()) return <Navigate to={'/'} replace />
+    if (loading) return <></>
     return (
         <Outlet />
     )
 }
-
 
 export default Protect;

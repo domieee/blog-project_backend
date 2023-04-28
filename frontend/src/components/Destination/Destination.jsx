@@ -1,43 +1,22 @@
 import '../../reset.scss'
 import './Destination.scss'
-import uuid4 from 'uuid4';
-import { Link } from 'react-router-dom'
-import { gsap } from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import DestinationItem from '../DestinationItem/DestinationItem';
-
-gsap.registerPlugin(ScrollTrigger)
+import { useEffect, useState } from 'react';
 
 const Destinations = (posts) => {
+    const [postsArray, setPostsArray] = useState([])
+    const [postsNum, setPostsNum] = useState(4)
 
-    document.addEventListener("scroll", () => {
-        console.log(window.scrollY);
-    })
 
-    if (document.querySelector('.item-row')) {
-        gsap.to(".item-row", {
-            duration: 1,
-            scrollTrigger: ".team",
-            y: 10,
-            opacity: 1,
-            stagger: 0.1 //seconds between when each ".box" element starts animating
-        });
+    useEffect(() => {
+        for (let i = 0; i < postsNum; i++) {
+            console.log(posts, 'asdasd')
+            console.log(posts.data[i], 'asdasdasdasdqwwwwwwwwwwwwwww')
+            setPostsArray([...postsArray], posts.data[i])
+        }
+    }, [posts])
 
-        gsap.to(".catch-phrase", {
-            scrollTrigger: ".item-row",
-            duration: 1.3,
-            x: 50,
-            opacity: 1,
-            stagger: {
-                duration: 5,
-                scale: 0.1,
-                axis: "x",
-                from: 1
-            }// 0 // 0.1 seconds between when each ".box" element starts animating
-        });
-    }
-
-    console.log(posts.data.title);
+    console.log(postsArray, '')
     return (
         <section id='landing-grid'>
             <h2 className='catch-phrase'>Explore the world</h2>

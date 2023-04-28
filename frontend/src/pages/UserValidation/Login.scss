@@ -11,11 +11,18 @@
     >input {
         @include inputFieldRegisterLogin;
         transition: 0.05s ease;
-
-
     }
 
     >button {
         @include buttonPrimary;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .errorInput {
+        color: red;
+        outline: 1px ridge red;
     }
 }

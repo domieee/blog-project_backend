@@ -1,0 +1,14 @@
+.registerProgress {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .progress {
+        border-radius: 5px;
+        height: 5px;
+        width: 260px;
+        background-color: grey;
+    }
+}
