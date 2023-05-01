@@ -37,14 +37,16 @@ const Editorpage = (protection) => {
         setChapter((current) => [...current,
         {
             heading: headingRef.current.value,
-            content: contentRef.current.value
+            text: contentRef.current.value
         }
         ]);
     }
 
-    async function postData() {
+    async function postData(e) {
+        e.preventDefault()
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND}/editor`, {
+                credentials: "include",
                 method: "POST",
                 body: JSON.stringify({
                     id: uuid4(),
@@ -53,7 +55,7 @@ const Editorpage = (protection) => {
                     subtext: description,
                     mainHeading: mainHeading,
                     mainText: mainText,
-                    text: chapters,
+                    content: chapters,
                     imgSrc: imgData,
                     imgSrcBlog: imgData
                 }),
@@ -71,7 +73,8 @@ const Editorpage = (protection) => {
             <section className='editor'>
                 <h2>Create your own article</h2>
                 <p>An article consists of a main heading, and a short introduction of what your article is about. </p>
-                <form className="content-editor">
+                <form className="content-editor"
+                    onSubmit={postData}>
                     <section className='form-head'>
                         <article className='head-card'>
                             {imgData != null ?
@@ -188,12 +191,12 @@ const Editorpage = (protection) => {
                                 return (
                                     <>
                                         <h4>{`${index + 1}. ${chapter.heading}`}</h4>
-                                        <p>{chapter.content}</p>
+                                        <p>{chapter.text}</p>
                                     </>
                                 )
                             })}
                         </article>
-                        <button onClick={postData}>Publish Article</button>
+                        <button type='submit'>Publish Article</button>
                     </article>
                 </form>
             </section >

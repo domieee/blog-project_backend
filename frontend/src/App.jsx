@@ -8,21 +8,22 @@ import Navigation from './components/Navigation/Navigation';
 import Login from './pages/UserValidation/Login';
 import Register from './pages/UserValidation/Register';
 import RegisterDetails from './pages/UserValidation/RegisterDetails';
+import RegisterMoreDetails from './pages/UserValidation/RegisterMoreDetails.jsx';
 import RegisterProgress from './pages/UserValidation/RegisterProgress';
 import Protect from './components/Protect';
 
 
-const UserContext = createContext();
 
 function App() {
 
   const [posts, setPosts] = useState([])
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState(false)
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND}/`)
       .then(res => res.json())
       .then(data => {
+        console.log(data, 'data')
         setPosts(data)
       })
   }, [])
@@ -32,13 +33,13 @@ function App() {
       credentials: 'include'
     }).then(response => {
       if (response.ok) {
-        response.text()
-          .then(response => { setUser(response) })
+        console.log('true')
+        setUser(true)
       } else {
-        setUser(null)
+        setUser(false)
       }
     })
-  }, [])
+  }, [user])
 
   console.log('user', user)
 
@@ -49,7 +50,7 @@ function App() {
 
       <Routes>
 
-        <Route path='/' element={<Landingpage user={user} data={posts} />} />
+        <Route path='/' element={<Landingpage user={user} setUser={setUser} data={posts} />} />
         <Route element={<Protect />}>
           <Route path='/editor' element={<Editorpage />} />
         </Route>
@@ -61,9 +62,7 @@ function App() {
           </Route>
         </Route>
         <Route path='/posts/:id' element={<Blogpage posts={posts} />} />
-
       </Routes>
-
     </BrowserRouter >
   )
 }

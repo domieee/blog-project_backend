@@ -4,7 +4,7 @@ import './RegisterProgress.scss'
 const RegisterProgress = () => {
     return (
         <section className="registerProgress">
-            <div className="progress"></div>
+            <progress value={0.1} />
             <Outlet />
         </section>
     );

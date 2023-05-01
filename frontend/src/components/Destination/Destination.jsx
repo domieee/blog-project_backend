@@ -9,12 +9,13 @@ const Destinations = (posts) => {
 
 
     useEffect(() => {
-        for (let i = 0; i < postsNum; i++) {
-            console.log(posts, 'asdasd')
-            console.log(posts.data[i], 'asdasdasdasdqwwwwwwwwwwwwwww')
-            setPostsArray([...postsArray], posts.data[i])
-        }
-    }, [posts])
+        const posts = fetch(`${import.meta.env.VITE_BACKEND}/`)
+            .then(res => res.json())
+            .then(data => {
+                setPosts(data)
+            })
+    }, [])
+
 
     console.log(postsArray, '')
     return (
@@ -31,6 +32,7 @@ const Destinations = (posts) => {
                             destination={post.destination}
                             subtext={post.subtext}
                             imgSrc={post.imgSrc}
+                            author={post.author}
                             index={index} />
                     )
                 })}

@@ -30,7 +30,8 @@ const Register = ({ user, setUser }) => {
                     confirmPassword: confirmPassword.current.value,
                     firstName: '',
                     lastName: '',
-                    description: ''
+                    description: '',
+                    destinations: []
                 })
             })
             if (response.ok) {

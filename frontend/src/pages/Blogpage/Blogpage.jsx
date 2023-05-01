@@ -8,6 +8,7 @@ import './Blogpage.scss'
 const Blogpage = ({ posts }) => {
 
     const params = useParams();
+    console.log(posts)
 
     window.scrollTo(0, 0)
 
