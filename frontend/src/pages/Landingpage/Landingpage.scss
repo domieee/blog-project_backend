@@ -3,7 +3,7 @@
 
     >.react-parallax-bgimage {
         height: 20vh;
-        width: 100%;
+        max-width: 100%;
     }
 
     article {
@@ -21,7 +21,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-50%, 50%);
     max-width: 550px;
     max-height: 400px;
     padding: 30px 50px;

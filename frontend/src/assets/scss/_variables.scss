@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../fonts/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Light;
+    src: url('../fonts/RobotoCondensed-Light.ttf');
+}
+
 /* Color Theme Swatches in Hex */
 $Natural-Health-and-Fitness-Theme-Color-Palette-1-hex: #060C21;
 $Natural-Health-and-Fitness-Theme-Color-Palette-2-hex: #006D1B;
@@ -11,3 +21,6 @@ $Natural-Health-and-Fitness-Theme-Color-Palette-2-rgba: rgba(0, 109, 26, 1);
 $Natural-Health-and-Fitness-Theme-Color-Palette-3-rgba: rgba(0, 142, 49, 1);
 $Natural-Health-and-Fitness-Theme-Color-Palette-4-rgba: rgba(255, 255, 255, 1);
 $Natural-Health-and-Fitness-Theme-Color-Palette-5-rgba: rgba(66, 188, 17, 1);
+
+$Font-Primary-Regular: Roboto Regular;
+$Font-Primary-Light: Roboto Light;

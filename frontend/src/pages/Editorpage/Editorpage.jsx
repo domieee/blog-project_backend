@@ -4,6 +4,7 @@ import DestinationItem from '../../components/DestinationItem/DestinationItem';
 import Placeholder from '../../assets/img/placeholder.jpg'
 import ConfettiGenerator from "confetti-js";
 import uuid4 from "uuid4";
+import { TextField } from '@mui/material'
 
 const Editorpage = (protection) => {
 
@@ -96,6 +97,10 @@ const Editorpage = (protection) => {
                         </article>
                         <article className="head-input">
                             <h3>Editor</h3>
+                            <TextField
+                                size='small'
+                                placeholder='e.g. "Jane Doe"'
+                                label='Name' />
                             <label htmlFor="destination">Destination</label>
                             <input
                                 type="text"

@@ -10,7 +10,6 @@ const DestinationItem = (post) => {
         <article
             className='grid-item'
             id={`grid-item-${post.index + 1}`}>
-
             <div
                 className='background'
                 style={{ backgroundImage: `url(${post.imgSrc})` }}>

@@ -34,6 +34,7 @@ const Register = ({ user, setUser }) => {
                     destinations: []
                 })
             })
+
             if (response.ok) {
                 const result = await response.json()
                 setUser(result.user.insertedId)
@@ -56,13 +57,14 @@ const Register = ({ user, setUser }) => {
                         setErrorKey('noMatch')
                         break;
                 }
-                console.log(errorKey)
+                throw new Error(errorKey)
                 setError(error.msg)
             }
         } catch (err) {
             console.log(err)
         }
     }
+
     return (
         <section className="register">
             <h2>Register</h2>
@@ -89,7 +91,11 @@ const Register = ({ user, setUser }) => {
                 name="password"
                 id="passwordCofirm"
                 placeholder='Confirm Password'
-                className={errorKey === 'confirmPassword' || errorKey === 'noMatch' ? 'errorInput' : null}
+                className={
+                    errorKey === 'confirmPassword' ||
+                        errorKey === 'noMatch' ?
+                        'errorInput' : null
+                }
                 required />
             {error && <span className="error">{error}</span>}
             <Link
